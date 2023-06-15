@@ -3,9 +3,11 @@
 // Imports
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
-import { HiHome } from "react-icons/hi";
-import { BiSearch } from "react-icons/bi";
 import Box from "./Box";
+import SideBarItem from "./SideBarItem";
+import Library from "./Library";
+import IcHome from "./icons/ic_home";
+import IcSearch from "./icons/ic_search";
 
 interface SidebarProps {
   children: React.ReactNode;
@@ -16,13 +18,13 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
   const routes = useMemo(
     () => [
       {
-        icon: HiHome,
+        icon: IcHome,
         label: "Home",
         active: pathName !== "/search",
         href: "/",
       },
       {
-        icon: BiSearch,
+        icon: IcSearch,
         label: "Search",
         active: pathName === "/search",
         href: "/search",
@@ -37,13 +39,15 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
         <Box>
           <div className="flex flex-col gap-y-4 px-5 py-4">
             {routes.map((item) => (
-              <div></div>
+              <SideBarItem key={item.label} {...item} />
             ))}
-          </div>{" "}
-          Test 1
-        </Box>{" "}
-        <Box className="overflow-y-auto h-full">Song Library</Box>
+          </div>
+        </Box>
+        <Box className="overflow-y-auto h-full">
+          <Library></Library>
+        </Box>
       </div>
+      <main className="h-full flex-1 overflow-y-auto py-2">{children}</main>
     </div>
   );
 };
