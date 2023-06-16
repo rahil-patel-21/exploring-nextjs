@@ -8,6 +8,7 @@ import SideBarItem from "./SideBarItem";
 import Library from "./Library";
 import IcHome from "./icons/ic_home";
 import IcSearch from "./icons/ic_search";
+import Header from "./Header";
 
 interface SidebarProps {
   children: React.ReactNode;

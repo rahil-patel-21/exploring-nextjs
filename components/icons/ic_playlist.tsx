@@ -1,4 +1,4 @@
 // Imports
-import { AiOutlinePlus as IcAdd } from "react-icons/ai";
+import { TbPlaylist as IcPlaylist } from "react-icons/tb";
 
-export default IcAdd;
+export default IcPlaylist;
