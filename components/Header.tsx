@@ -7,6 +7,7 @@ import IcBack from "./icons/ic_back";
 import IcForward from "./icons/ic_forward";
 import IcHome from "./icons/ic_home";
 import IcSearch from "./icons/ic_search";
+import CustomButton from "./CustomButton";
 
 interface HeaderPops {
   children: React.ReactNode;
@@ -52,7 +53,29 @@ const Header: React.FC<HeaderPops> = ({ children, className }) => {
             <IcSearch className="text-black" size={20}></IcSearch>
           </button>
         </div>
+
+        {/* Sign up, Log in, Logout */}
+        <div className="flex justify-between items-center gap-x-4">
+          {/* Sign up */}
+          <div>
+            <CustomButton
+              className="
+                    bg-transparent 
+                    text-neutral-300
+                    font-medium
+                    opacity-75
+                    hover:opacity-100"
+            >
+              Sign up
+            </CustomButton>
+          </div>
+          {/* Log in */}
+          <div>
+            <CustomButton className="bg-white px-6 py-2">Log in</CustomButton>
+          </div>
+        </div>
       </div>
+      {children}
     </div>
   );
 };
